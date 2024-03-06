@@ -1,10 +1,27 @@
 <!doctype html>
 <html lang="en">
 <head>
+<script language="javascript">
+function updateDate(){
+  var space, data, day, month, year, hours, minutes, seconds;
+  space = " ";
+  data = new Date();
+  day = data.getDate(); // mi estrae il numero del giorno dalla   funzione Date.
+  month = getItalianMonth(data.getMonth());
+  year = data.getYear();
+  hours = data.getHours();
+  minutes = data.getMinutes();
+  seconds = data.getSeconds();
+  var ref=document.getElementById('clock');
+ref.innerHTML=day+space+month+space+year+" "+hours+":"+minutes+":"+seconds;
+  window.setTimeout("updateDate()",1000);
+} 
+</script>
 </head>
-<body>
+<body onLoad="updateDate();">
     <center> 
     <h1>LSA DEFCON</h1>
+    <div class="clock" id="clock"></div>
     <img src="defcon4.png" alt="DEFCON4"> 
     </center>
 </body>
